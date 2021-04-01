@@ -273,64 +273,54 @@ console.log(changeDate('31-12-2030'));
 console.log('====Task-21====='); 
 
 function twoArrayInOne(str1, str2) {
-	let array1 = str1.split(' ');
-	let array2 = str2.split(' ');
-	let result = array1.concat(array2);
+	let result = str1.concat(str2);
 
 	return result
 }
 
-console.log(twoArrayInOne('lorem ipsum', 'dolor sit'));
+console.log(twoArrayInOne(['lorem ipsum'], ['dolor sit']));
 
 
 //==========22
 console.log('====Task-22====='); 
 
-function addLastElement(str) {
-	let array = str.split(' ');
-	array.push('amet')
+function addLastElement(str, element) {
+	str.push(element)
 
-	return array
+	return str
 }
 
-console.log(addLastElement('lorem ipsum dolor sit'));
+console.log(addLastElement(['lorem ipsum dolor sit'], 'amet'));
 
 
 //==========23
 console.log('====Task-23====='); 
 
 function reverseArray(array) {
-	return array.split(' ').reverse();
+	return array.reverse();
 }
 
-console.log(reverseArray('lorem ipsum dolor sit'));
+console.log(reverseArray(['lorem ', 'ipsum', 'dolor', 'sit']));
 
 
 //==========24
 console.log('====Task-24====='); 
 
-function deleteElement(array) {
-	let result = array.split(' ');
-	let index = result.indexOf('dolor');
+function deleteElement(array, element) {
+	let index = array.indexOf(element);
 
 	if (index > -1) {
-		result.splice(index, 1);
+		array.splice(index, 1);
 	}
 
-	return result
+	return array
 }
 
-console.log(deleteElement('lorem ipsum dolor sit'));
+console.log(deleteElement(['lorem ', 'ipsum', 'dolor', 'sit'], 'dolor'));
 
 
 //==========25
 console.log('====Task-25====='); 
-
-// function calculateAge(year) {
-// 	return 2021 - year;
-// }
-
-// console.log(calculateAge(1992));
 
 function myBirthDay() {
 	let date1 = new Date('1992.08.14');

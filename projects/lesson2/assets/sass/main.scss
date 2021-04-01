@@ -1,0 +1,21 @@
+@import './base-style.scss';
+
+.main-content {
+	max-width: 700px;
+	margin-bottom: 65px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid rgb(25, 112, 71);
+
+	h4 {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+
+	p {
+		margin-top: 0;
+	}
+
+	button {
+		margin-bottom: 10px;
+	}
+}
