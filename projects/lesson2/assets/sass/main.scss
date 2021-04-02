@@ -19,3 +19,26 @@
 		margin-bottom: 10px;
 	}
 }
+
+.img-wrapper {
+	margin-bottom: 20px;
+}
+
+.hide-input {
+	display: none;
+}
+
+.inp-cont {
+
+	&.inp-cont-plus {
+		color: red;
+		width: 250px;
+	}
+}
+
+.form-alert {
+
+	input {
+		margin-bottom: 5px;
+	}
+}
