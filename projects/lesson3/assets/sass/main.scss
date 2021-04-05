@@ -1,0 +1,285 @@
+@import './reset.scss';
+@import './bootstrap-grid.scss';
+@import './base-style.scss';
+
+
+// ------------------------------------------
+// MIXIN
+// ------------------------------------------
+
+@mixin absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
+// ------------------------------------------
+// MODULES
+// ------------------------------------------
+
+.container {
+	width: 1210px;
+	max-width: 100%;
+}
+
+.color-scheme-light {
+	
+	h1,h2,h3,h4,h5,h6,i,a {
+		color: #FFF;
+	}
+	
+	p, ul {
+		color: rgba(255,255,255,.8);
+	}
+}
+
+.colortext {
+	color: #DA8A67;
+}
+
+
+// ------------------------------------------------------------------------------------------------
+// PRODUCTS
+// ------------------------------------------------------------------------------------------------
+
+.products {
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+.row-spacing-50 {
+
+	> [class*='col-'] {
+		margin-bottom: 50px;
+	}
+}
+
+.products-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+
+	h2 {
+		margin-bottom: 0;
+	}
+}
+
+.products-header-title {
+	margin-right: 20px;
+
+	.colortext {
+		font-size: 13px;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+}
+
+.tab-menu {
+	margin-right: -15px;
+
+	li {
+		
+		&.active {
+
+			a {
+				color: $title-color;
+			}
+		}
+	}
+
+	a {
+		padding: 0 20px;
+		font-weight: 500;
+		color: rgba(16, 16, 16, 0.7);
+
+		&:after {
+			left: 20px;
+			right: 20px;
+			height: 2px;
+		}
+	}
+}
+
+.banner {
+	position: relative;
+	margin-bottom: 20px;
+
+	.banner-link {
+
+		@include absolute;
+		z-index: 1;
+	}
+}
+
+.banner-hover {
+
+	&:hover {
+
+		.banner-img-hover {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.banner-square {
+	width: 40px;
+	height: 37px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	color: $title-color;
+
+	&:hover {
+		color: #DA8A67;
+	}
+}
+
+.banner-img-hover {
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+
+	@include absolute;
+}
+
+.banner-img-hover-inner {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	right: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+
+	a {
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
+
+	.banner-btn {
+		white-space: nowrap;
+		padding: 9px 18px;
+
+		&:hover {
+			
+			i {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		i {
+			opacity: 0;
+			visibility: hidden;
+			margin-left: 5px;
+			transition: all .4s ease;
+		}
+	}
+}
+
+.left-menu {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	// margin-left: -50px;
+
+	li {
+		margin-bottom: 0;
+	}
+}
+
+
+.main-menu {
+	display: flex;
+	align-items: center;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		margin-bottom: 0;
+
+		&.active,
+		&:hover {
+
+			a {
+
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+	
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		padding: 5px 14px;
+		color: inherit;
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 13px;
+			right: 14px;
+			bottom: 0;
+			height: 3px;
+			background-color: #da8a67;
+			opacity: 0;
+			visibility: hidden;
+			transition: all .4s ease;
+		}
+	}
+
+	i {
+		color:  rgba(16, 16, 16, 0.4);
+		margin-left: 5px;
+	}
+}
+
+.product-list {
+
+	> div {
+		display: none;
+	}
+
+	.active {
+		display: flex;
+	}
+}
+
+// ------------------------------------------
+// task - 2
+// ------------------------------------------
+
+.accordion-wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.accordion-item {
+	margin-bottom: 20px;
+}
+
+.accordion-item-trigger {
+	padding: 20px;
+	border: 1px solid #000;
+}
+
+.accordion-item-content {
+	padding: 20px;
+	border: 1px solid #000;
+	border-top: none;
+	display: none;
+}
