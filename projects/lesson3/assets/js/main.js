@@ -19,3 +19,15 @@ $('.products').each(function() {
 $('.accordion-item-trigger').click(function() {
 	$(this).next('.accordion-item-content').slideToggle();
 })
+
+$('.triger-active').click(function() {
+	let $triggerActive = $(this).parent();
+
+	if ($triggerActive.hasClass('accordion-item-active')) {
+		$triggerActive.removeClass('accordion-item-active');
+	} else {
+		$('.accordion-item').removeClass('accordion-item-active')
+		$triggerActive.addClass('accordion-item-active')
+	}
+	$(this).parent().toggleClass('accordion-item-active')
+});
