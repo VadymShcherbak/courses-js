@@ -1962,27 +1962,26 @@ button,
   display: flex;
 }
 
-.accordion-wrapper {
+.accordion {
   max-width: 1000px;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .accordion-item {
   margin-bottom: 20px;
 }
-
-.accordion-item-trigger {
-  padding: 20px;
-  border: 1px solid #000;
+.accordion-item.accordion-item-open p {
+  display: block;
 }
-
-.accordion-item-content {
+.accordion-item p {
   padding: 20px;
   border: 1px solid #000;
   border-top: none;
   display: none;
 }
 
-.accordion-item-active {
-  display: block;
+.accordion-title {
+  padding: 20px;
+  border: 1px solid #000;
 }

@@ -4,30 +4,36 @@ $('.products').each(function() {
 	let $tabMenu = $products.find('.tab-menu > li');
 
 
-	$tabMenu.click(function() {
-		let dataProduct = $(this).data('product')
-		$(this).siblings().removeClass('active');
-		$(this).addClass('active');
+	$tabMenu.click(function(e) {
+		e.preventDefault();
+		let $thisTab = $(this);
+		let $dataProduct = $thisTab.data('product');
+		let $findProduct = $products.find('.product-list .row[data-product='+$dataProduct+']');
 
-		$products.find('.product-list .row[data-product='+dataProduct+']').siblings().removeClass('active');
-		$products.find('.product-list .row[data-product='+dataProduct+']').addClass('active');
+
+		$thisTab.siblings().removeClass('active');
+		$thisTab.addClass('active');
+
+		$findProduct.siblings().removeClass('active');
+		$findProduct.addClass('active');
 	});
 });
 
 //============ TASK - 2 ========
+$('.accordion').each(function() {
+	let $sectionAccordion = $(this);
+	let $accordionItem = $sectionAccordion.find('.accordion-wrapper > div');
+	let $accordionState = $sectionAccordion.data('acc-state');
 
-$('.accordion-item-trigger').click(function() {
-	$(this).next('.accordion-item-content').slideToggle();
-})
-
-$('.triger-active').click(function() {
-	let $triggerActive = $(this).parent();
-
-	if ($triggerActive.hasClass('accordion-item-active')) {
-		$triggerActive.removeClass('accordion-item-active');
-	} else {
-		$('.accordion-item').removeClass('accordion-item-active')
-		$triggerActive.addClass('accordion-item-active')
+	if ('open' === $accordionState) {
+		$accordionItem.on('click', function() {
+			$(this).toggleClass('accordion-item-open');
+		});
+	} else if ('one-open' === $accordionState) {
+		$accordionItem.on('click', function() {
+			let $accOneOpen = $(this);
+			$accOneOpen.siblings().removeClass('accordion-item-open');
+			$accOneOpen.addClass('accordion-item-open');
+		});
 	}
-	$(this).parent().toggleClass('accordion-item-active')
 });

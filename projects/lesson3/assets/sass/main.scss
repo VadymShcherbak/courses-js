@@ -263,27 +263,31 @@
 // task - 2
 // ------------------------------------------
 
-.accordion-wrapper {
+.accordion {
 	max-width: 1000px;
 	margin: 0 auto;
+	margin-bottom: 100px;
 }
 
 .accordion-item {
 	margin-bottom: 20px;
+
+	&.accordion-item-open {
+	
+		p {
+			display: block;
+		}
+	}
+
+	p {
+		padding: 20px;
+		border: 1px solid #000;
+		border-top: none;
+		display: none;
+	}
 }
 
-.accordion-item-trigger {
+.accordion-title {
 	padding: 20px;
 	border: 1px solid #000;
-}
-
-.accordion-item-content {
-	padding: 20px;
-	border: 1px solid #000;
-	border-top: none;
-	display: none;
-}
-
-.accordion-item-active {
-	display: block;
 }
