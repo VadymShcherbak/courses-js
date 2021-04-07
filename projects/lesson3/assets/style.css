@@ -1985,3 +1985,22 @@ button,
   padding: 20px;
   border: 1px solid #000;
 }
+
+.slider {
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.slider-wrapper {
+  margin-bottom: 15px;
+}
+.slider-wrapper > div {
+  display: none;
+}
+.slider-wrapper > div.active {
+  display: block;
+}
+
+.slider-nav a:first-child {
+  margin-right: 35px;
+}
