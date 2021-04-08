@@ -1615,6 +1615,7 @@ body {
   font-size: 16px;
   line-height: 1.4;
   color: rgba(16, 16, 16, 0.8);
+  background-color: rgba(238, 174, 91, 0.39);
   overflow-x: hidden;
 }
 
@@ -1756,6 +1757,7 @@ button,
 .button {
   padding: 9px 28px;
   border: none;
+  border-radius: 10px;
   color: #fff;
   background-color: #333333;
   font-size: 14px;
@@ -1766,24 +1768,34 @@ button,
 .button {
   display: inline-block;
 }
-.button.banner-btn {
-  background-color: #fff;
-  color: rgba(16, 16, 16, 0.9);
-  font-weight: 600;
-}
 .button.button-link {
   background-color: transparent;
   color: rgba(16, 16, 16, 0.8);
   font-weight: 600;
 }
+.button:hover {
+  background-color: rgba(58, 122, 240, 0.829);
+}
 
-.container {
-  width: 1800px;
-  max-width: 100%;
+.row-spacing > [class*=col-] {
+  margin-bottom: 20px;
+}
+
+.blog {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .user {
-  margin-bottom: 40px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: rgba(43, 204, 64, 0.726);
+}
+.user:not(:last-child) {
+  margin-bottom: 20px;
+}
+.user a:not(:last-child) {
+  margin-right: 10px;
 }
 
 .user-photo {
@@ -1793,6 +1805,32 @@ button,
   margin-bottom: 10px;
 }
 
+.user-info {
+  margin-bottom: 15px;
+}
 .user-info h4 {
   margin-bottom: 5px;
+}
+
+.server-error {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.server-error h1 {
+  font-size: 80px;
+  color: red;
+}
+.server-error p {
+  font-size: 42px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.post-item-content {
+  padding: 15px;
+  background-color: rgba(228, 218, 86, 0.801);
+  border-radius: 20px;
 }

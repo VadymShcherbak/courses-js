@@ -2,8 +2,25 @@
 @import './reset.scss';
 @import './base-style.scss';
 
+.blog {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
 .user {
-	margin-bottom: 40px;
+	padding: 15px;
+	border-radius: 20px;
+	background-color: rgba(43, 204, 64, 0.726);
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	a {
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
 }
 
 .user-photo {
@@ -14,8 +31,35 @@
 }
 
 .user-info {
+	margin-bottom: 15px;
 
 	h4 {
 		margin-bottom: 5px;
 	}
+}
+
+
+.server-error {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	h1 {
+		font-size: 80px;
+		color: red;
+	}
+
+	p {
+		font-size: 42px;
+		color: #000;
+		margin-bottom: 5px;
+	}
+}
+
+.post-item-content {
+	padding: 15px;
+	background-color: rgba(228, 218, 86, 0.801);
+	border-radius: 20px;
 }
