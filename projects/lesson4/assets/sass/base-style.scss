@@ -173,9 +173,15 @@ button,
 	display: inline-block;
 
 	&.button-link {
+		text-decoration: underline;
 		background-color: transparent;
 		color:  rgba(16, 16, 16, 0.8);
 		font-weight: 600;
+
+		&:hover {
+			background-color: transparent;
+			color: rgba(58, 122, 240, 0.829);
+		}
 	}
 
 	&:hover {

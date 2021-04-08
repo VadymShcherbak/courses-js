@@ -3,14 +3,20 @@
 @import './base-style.scss';
 
 .blog {
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.card {
+	height: 100vh;
+	overflow-y: scroll;
 }
 
 .user {
 	padding: 15px;
 	border-radius: 20px;
 	background-color: rgba(43, 204, 64, 0.726);
+	margin-right: 5px;
 
 	&:not(:last-child) {
 		margin-bottom: 20px;
@@ -62,4 +68,11 @@
 	padding: 15px;
 	background-color: rgba(228, 218, 86, 0.801);
 	border-radius: 20px;
+}
+
+.comment {
+	
+	p {
+		color: rgba(16, 16, 16, 0.9);
+	}
 }

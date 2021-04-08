@@ -16,7 +16,7 @@
 					</div>`
 				);
 			});
-			// $('.posts-btn').first().trigger('click');
+			$('.posts-btn').first().trigger('click');
 		}
 
 		function renderPosts(data) {
@@ -27,7 +27,7 @@
 						<div class="post-item-content">
 							<h3>${el.title}</h3>
 							<p>${el.body}</p>
-							<a href="#" class="button com-btn">Show comments</a>
+							<a href="#" class="button com-btn button-link">Show comments</a>
 						</div>
 					</div>`
 				);
@@ -37,7 +37,7 @@
 		function renderComents(data) {
 			data.forEach(function(el) {
 
-				$(`.post-item[data-post-id="${el.postId}"] .com-btn`).append(
+				$(`.post-item[data-post-id="${el.postId}"] .post-item-content`).append(
 					`<div class="comment">
 						<p>${el.name}</p>
 					</div>`
@@ -78,9 +78,14 @@
 
 				let $thisUser = $(this).parents('.user');
 				let $userId = $thisUser.data('user-id');
-
-				if (!postData[`user_id_${$userId}`]) {
 					
+				if ($(this).hasClass('active')) {
+					return false;
+				}
+
+				$('.post-item').remove();
+				$('.posts-btn').removeClass('active');
+				$(this).addClass('active');
 
 					$.ajax({
 						url: `https://jsonplaceholder.typicode.com/posts?userId=${$userId}`,
@@ -94,6 +99,45 @@
 							errorWindow();
 						}
 					});
+			});
+		}
+
+		function showComments () {
+			let commentData = {};
+
+			$(document).on('click', '.com-btn', function(e) {
+				e.preventDefault();
+
+				let $thisComment = $(this);
+				let $postId = $thisComment.parents('.post-item').data('post-id');
+
+				// if ($thisComment.parents('post-item').find('.comment').length) {
+				// 	return false;
+				// }
+
+				// if ($(this).hasClass('active')) {
+				// 	return false;
+				// }
+
+				$('.comment').remove();
+				$('.com-btn').removeClass('active');
+				$(this).addClass('active');
+
+
+				if (!commentData[`post_id_${$postId}`]) {
+					
+					$.ajax({
+						url: `https://jsonplaceholder.typicode.com/comments?postId=${$postId}`,
+
+						success: function(data) {
+							commentData[`post_id_${$postId}`] = data;
+							renderComents(data , 'comments');
+						},
+
+						error: function() {
+							errorWindow();
+						}
+					})
 				}
 			});
 		}
@@ -101,6 +145,7 @@
 		$(document).ready(function() {
 			addUser();
 			addPost();
+			showComments();
 		});
 
 })(jQuery);
