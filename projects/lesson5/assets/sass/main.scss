@@ -1,0 +1,60 @@
+@import './reset.scss';
+@import './base-style.scss';
+@import './bootstrap-grid.scss';
+
+
+// ------------------------------------------------------------------------------------------------
+// WEATHER
+// -----------------------------------------------------------------------------------------------
+.weather-wrapper {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.weather {
+	margin-bottom: 20px;
+}
+
+.weather-form {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.row-center {
+	justify-content: center;
+}
+
+.weather-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(115, 245, 173, 0.678);
+	border-radius: 15px;
+}
+
+.degrees {
+	font-size: 62px;
+}
+
+.degrees-btn {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+
+	.cel-btn {
+		margin-right: 10px;
+	}
+
+	.cel-btn,
+	.far-btn {
+		border-radius: 10px;
+
+		&:hover {
+			background-color: rgb(238, 202, 40);
+		}
+	}
+}
+

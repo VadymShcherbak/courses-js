@@ -1,0 +1,320 @@
+//**** COLOR ****//
+
+$title-color:  #292828;
+$body-color: #2e2a2a;
+$hover-green: #5caf33;
+$button-hover-color:#319ae6;
+
+//**** FONTS ****//
+
+$body-font: 'Josefin Sans', sans-serif;
+
+
+//**** TEG-STYLE ****//
+
+body {
+	font-family: $body-font;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.4;
+	color: $body-color;
+	// background: linear-gradient(#f5901db6, #5da3f1b2);
+	// overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	line-height: 1.2;
+	text-transform: capitalize;
+	color: $title-color;
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-size: 69px;
+}
+
+h2 {
+	font-size: 60px;
+}
+
+h3 {
+	font-size: 40px;
+}
+
+h4 {
+	font-size: 36px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 13px;
+}
+
+p {
+	margin-bottom: 20px;
+	line-height: 1.6;
+	color: rgba(85, 85, 85, .7);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+	color: #BCC6CD;
+	transition: all .4s ease;
+
+	&:hover {
+		color: $button-hover-color;
+	}
+}
+
+strong {
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+small {
+	font-size: 80%;
+}
+
+th {
+	font-weight: 700;
+	border: 2px solid rgba(16, 16, 16, 0.05);
+}
+
+tr {
+
+	&:not(:last-child) {
+		border-bottom: 1px solid rgba(0,0,0,.8);
+	}
+}
+
+td {
+	border: 2px solid rgba(16, 16, 16, 0.05);
+	padding: 5px;
+}
+
+ul, ol {
+	padding-left: 40px;
+	margin-bottom: 20px;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+//**** FORM ****//
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='time'],
+select,
+textarea {
+	border: 1px solid rgba(33, 33, 33, 0.1);
+	outline: none;
+	width: 100%;
+	font-size: 16px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='time'],
+select {
+	height: 41px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: rgba(20, 20, 20, .5);
+}
+
+textarea {
+	height: 120px;
+	padding: 20px;
+}
+
+select {
+	cursor: pointer;
+}
+
+::placeholder {
+	color: rgba(16, 16, 16, 0.5);
+}
+
+input[type='submit'],
+input[type='button'],
+button,
+.button {
+	display: inline-block;
+	padding: 9px 20px;
+	border: 2px solid transparent;
+	color: #fff;
+	background-color: #4D6D3D;
+	font-family: $body-font;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+	transition: all .4s ease;
+
+	&:hover {
+		background-color: $button-hover-color;
+		color: #fff;
+	}
+}
+
+.button {
+
+	&.border-button {
+		background-color: transparent;
+		border: 2px solid rgba(255, 255, 255, .5);
+
+		&:hover {
+			background-color: $button-hover-color;
+		}
+	}
+
+	&.white-button {
+		background-color: #fff;
+		color: $body-color;
+
+		&:hover {
+			background-color: $button-hover-color;
+			color: #fff;
+		}
+	}
+
+	&.linked-button {
+		display: flex;
+		align-items: center;
+		background-color: transparent;
+		border: none;
+		color: $body-color;
+		padding: 0;
+
+		i {
+			color: #4d6d3d;
+			margin-left: 5px;
+		}
+
+		&:hover {
+			color: $hover-green;
+		}
+	}
+}
+
+// ------------------------------------------
+// MODULES
+// ------------------------------------------
+
+.container {
+	width: 1450px;
+	max-width: 100%;
+}
+
+.color-scheme-light {
+	color: #fff;
+	
+	h1,h2,h3,h4,h5,h6,i,a {
+		color: #FFF;
+	}
+	
+	p, ul {
+		color: rgba(255,255,255,.6);
+	}
+}
+
+.main-burger {
+	display: none;
+	padding: 15px;
+	font-size: 30px;
+	margin-right: 25px;
+	cursor: pointer;
+	transition: color .4s ease;
+
+	&:hover {
+		color: $hover-green;
+	}
+}
+
+.row-spacing-col-side {
+	margin-left: -10px;
+	margin-right: -10px;
+
+	> [class*="col-"] {
+		padding-left: 10px;
+		padding-right: 10px;
+		margin-bottom: 20px;
+	}
+}
+
+.row-spacing-120 {
+	margin-bottom: 120px;
+}
+
+.weight-400 {
+	font-weight: 400;
+}
+
+.weight-500 {
+	font-weight: 500;
+}
+
+.swatch {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+
+	&.sw-color-brown {
+		background-color: #d0ba98;
+	}
+
+	&.sw-color-grey {
+		background-color: #dddddd;
+	}
+
+	&.sw-color-blue {
+		background-color: #77a8c3;
+	}
+}
+
+.uperrcase-norm {
+	text-transform: initial;
+}
+
+.font-s-24 {
+	font-size: 24px;
+}
