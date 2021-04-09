@@ -19,7 +19,7 @@ body {
 	font-size: 16px;
 	line-height: 1.4;
 	color: $body-color;
-	background-color: #FCF8F8;
+	background: linear-gradient(rgba(53, 235, 195, 0.705),rgba(228, 166, 33, 0.555));
 	// overflow-x: hidden;
 }
 
@@ -77,9 +77,9 @@ a {
 	color: #BCC6CD;
 	transition: all .4s ease;
 
-	&:hover {
-		color: $button-hover-color;
-	}
+	// &:hover {
+	// 	color: $button-hover-color;
+	// }
 }
 
 strong {
@@ -179,10 +179,10 @@ input[type='button'],
 button,
 .button {
 	display: inline-block;
-	padding: 9px 20px;
+	padding: 15px 25px;
 	border: 2px solid transparent;
 	color: #fff;
-	background-color: #4D6D3D;
+	background-color: transparent;
 	font-family: $title-font;
 	font-size: 13px;
 	font-weight: 700;
@@ -190,10 +190,10 @@ button,
 	outline: none;
 	transition: all .4s ease;
 
-	&:hover {
-		background-color: $button-hover-color;
-		color: #fff;
-	}
+	// &:hover {
+	// 	background-color: $button-hover-color;
+	// 	color: #fff;
+	// }
 }
 
 .button {
@@ -225,14 +225,14 @@ button,
 		color: $body-color;
 		padding: 0;
 
-		i {
-			color: #4d6d3d;
-			margin-left: 5px;
-		}
+		// i {
+		// 	color: #4d6d3d;
+		// 	margin-left: 5px;
+		// }
 
-		&:hover {
-			color: $hover-green;
-		}
+		// &:hover {
+		// 	color: $hover-green;
+		// }
 	}
 }
 

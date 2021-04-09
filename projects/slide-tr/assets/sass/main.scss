@@ -1,0 +1,65 @@
+@import './reset.scss';
+@import './base-style.scss';
+@import './bootstrap-grid.scss';
+
+// ------------------------------------------------------------------------------------------------
+// SLIDER
+// ------------------------------------------------------------------------------------------------
+.main-slider {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slider {
+
+	> div {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}
+
+.slider-img {
+	border-radius: 15px;
+	box-shadow: 14px 30px 50px 53px #9bc23185;
+	
+	img {
+		border-radius: 15px;
+	}
+}
+
+.slider-nav-right {
+	position: absolute;
+	top: 50%;
+	right: -35px;
+	bottom: 0;
+}
+
+.slider-nav-left {
+	position: absolute;
+    top: 50%;
+    left: -35px;
+    bottom: 0;
+}
+
+.slider-nav-left,
+.slider-nav-right {
+
+	.button {
+
+		i {
+			font-size: 20px;
+			transition: all .2s ease;
+		}
+		
+		&:hover {
+			i {
+				transform: scale(1.2);
+			}
+		}
+	}
+}
