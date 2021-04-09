@@ -45,6 +45,12 @@
 			});
 		}
 
+		function renderAlbum(data) {
+			data.forEach(function(el) {
+				
+			});
+		}
+
 		function errorWindow() {
 			$('body').children().remove();
 
@@ -111,17 +117,12 @@
 				let $thisComment = $(this);
 				let $postId = $thisComment.parents('.post-item').data('post-id');
 
-				// if ($thisComment.parents('post-item').find('.comment').length) {
-				// 	return false;
-				// }
-
-				// if ($(this).hasClass('active')) {
-				// 	return false;
-				// }
-
-				$('.comment').remove();
-				$('.com-btn').removeClass('active');
-				$(this).addClass('active');
+				if ($thisComment.hasClass('active')) {
+					$thisComment.removeClass('active');
+					$thisComment.parents('.post-item-content').find('.comment').remove();
+				} else {
+					$thisComment.toggleClass('active');
+				}
 
 
 				if (!commentData[`post_id_${$postId}`]) {
@@ -137,7 +138,9 @@
 						error: function() {
 							errorWindow();
 						}
-					})
+					});
+				} else {
+					renderComents(commentData[`post_id_${$postId}`]);
 				}
 			});
 		}
