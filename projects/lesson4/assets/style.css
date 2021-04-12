@@ -1610,7 +1610,7 @@ input::-moz-focus-inner {
 }
 
 body {
-  font-family: "Hind", sans-serif;
+  font-family: "Kiwi Maru", serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
@@ -1620,7 +1620,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Spartan", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 500;
   color: rgba(16, 16, 16, 0.9);
   margin-bottom: 20px;
@@ -1769,6 +1769,7 @@ button,
   display: inline-block;
 }
 .button.button-link {
+  padding: 10px 0;
   text-decoration: underline;
   background-color: transparent;
   color: rgba(16, 16, 16, 0.8);
@@ -1778,7 +1779,8 @@ button,
   background-color: transparent;
   color: rgba(58, 122, 240, 0.829);
 }
-.button:hover {
+.button:hover,
+.button .active {
   background-color: rgba(58, 122, 240, 0.829);
 }
 
@@ -1804,6 +1806,9 @@ button,
 }
 .user:not(:last-child) {
   margin-bottom: 20px;
+}
+.user a {
+  margin-bottom: 10px;
 }
 .user a:not(:last-child) {
   margin-right: 10px;
@@ -1846,6 +1851,29 @@ button,
   border-radius: 20px;
 }
 
+.comment {
+  padding: 5px;
+}
 .comment p {
   color: rgba(16, 16, 16, 0.9);
+}
+
+.albums .albums-item {
+  border-radius: 15px;
+  padding: 15px;
+  background-color: rgba(130, 228, 195, 0.671);
+}
+
+.photo-item img {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.photo-item h5 {
+  margin-bottom: 0;
+}
+
+.todo-item {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(143, 224, 140, 0.747);
 }

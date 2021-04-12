@@ -22,7 +22,7 @@
 		function renderPosts(data) {
 			data.forEach(function(el) {
 
-				$('.posts').append(
+				$('.blog .blog-content').append(
 					`<div class="post-item col-lg-6" data-post-id="${el.id}">
 						<div class="post-item-content">
 							<h3>${el.title}</h3>
@@ -48,6 +48,41 @@
 		function renderAlbum(data) {
 			data.forEach(function(el) {
 				
+				$('.blog .blog-content').append(
+					`<div class="albums col-lg-4" data-album-id="${el.id}">
+						<div class="albums-item">
+							<h4>${el.title}</h4>
+							<a href="#" class="button photo-btn button-link">Show Photo</a>
+						</div>
+					</div>`
+				);
+			});
+		}
+
+		function renderPhoto(data) {
+			data.forEach(function(el) {
+
+				$('.blog .blog-content').append(
+					`<div class="photo col-lg-3" data-photo-id="${el.id}">
+						<div class="photo-item">
+							<img src="${el.thumbnailUrl}">
+							<h5>${el.title}</h5>
+						</div>
+					</div>`
+				);
+			});
+		}
+
+		function renderTodo (data) {
+			data.forEach(function(el) {
+
+				$('.blog .blog-content').append(
+					`<div class="todo col-lg-4" data-todo-id="${el.id}">
+						<div class="todo-item">
+							<h5>${el.title}</h5>
+						</div>
+					</div>`
+				);
 			});
 		}
 
@@ -82,16 +117,16 @@
 			$(document).on('click', '.posts-btn', function(e) {
 				e.preventDefault();
 
-				let $thisUser = $(this).parents('.user');
+				let $postsBtn = $(this);
+				let $thisUser = $postsBtn.parents('.user');
 				let $userId = $thisUser.data('user-id');
 					
-				if ($(this).hasClass('active')) {
+				if ($postsBtn.hasClass('active')) {
 					return false;
 				}
 
-				$('.post-item').remove();
-				$('.posts-btn').removeClass('active');
-				$(this).addClass('active');
+				removeElement();
+				$postsBtn.addClass('active');
 
 					$.ajax({
 						url: `https://jsonplaceholder.typicode.com/posts?userId=${$userId}`,
@@ -121,18 +156,54 @@
 					$thisComment.removeClass('active');
 					$thisComment.parents('.post-item-content').find('.comment').remove();
 				} else {
-					$thisComment.toggleClass('active');
+					$thisComment.addClass('active');
+
+					if (!commentData[`post_id_${$postId}`]) {
+					
+						$.ajax({
+							url: `https://jsonplaceholder.typicode.com/comments?postId=${$postId}`,
+	
+							success: function(data) {
+								commentData[`post_id_${$postId}`] = data;
+								renderComents(data , 'comments');
+							},
+	
+							error: function() {
+								errorWindow();
+							}
+						});
+					} else {
+						renderComents(commentData[`post_id_${$postId}`]);
+					}
+				}
+			});
+		}
+
+		function addAlbum() {
+			let = albumData = {};
+
+			$(document).on('click', '.album-btn', function(e) {
+				e.preventDefault();
+				
+				let = $thisAlbum = $(this);
+				let = $thisUser = $thisAlbum.parents('.user');
+				let = $userId = $thisUser.data('user-id');
+
+				if ($thisAlbum.hasClass('active')) {
+					return false;
 				}
 
+				removeElement();
+				$thisAlbum.addClass('active');
 
-				if (!commentData[`post_id_${$postId}`]) {
+				if (!albumData[`user_id_${$userId}`]) {
 					
 					$.ajax({
-						url: `https://jsonplaceholder.typicode.com/comments?postId=${$postId}`,
+						url: `https://jsonplaceholder.typicode.com/albums?userId=${$userId}`,
 
 						success: function(data) {
-							commentData[`post_id_${$postId}`] = data;
-							renderComents(data , 'comments');
+							albumData[`user_id_${$userId}`] = data;
+							renderAlbum(data);
 						},
 
 						error: function() {
@@ -140,15 +211,102 @@
 						}
 					});
 				} else {
-					renderComents(commentData[`post_id_${$postId}`]);
+					renderAlbum(albumData[`user_id_${$userId}`]);
 				}
 			});
+		}
+
+		function showPhoto() {
+			let photoData = {};
+
+			$(document).on('click', '.photo-btn', function(e) {
+				e.preventDefault();
+
+				let $photoBtn = $(this);
+				let $photoAlbum = $photoBtn.parents('.albums');
+				let $albumId = $photoAlbum.data('album-id');
+
+				if ($photoBtn.hasClass('active')) {
+					return false;
+				}
+
+				removeElement();
+				$photoBtn.addClass('active');
+
+				if (!photoData[`album_id_${$albumId}`]) {
+					
+					$.ajax({
+						url: `https://jsonplaceholder.typicode.com/photos?albumId=${$albumId}`,
+
+						success: function(data) {
+							photoData[`album_id_${$albumId}`] = data;
+							renderPhoto(data);
+						},
+
+						error: function() {
+							errorWindow();
+						}
+					})
+				} else {
+					renderPhoto(photoData[`album_id_${$albumId}`]);
+				}
+			});
+		} 
+
+		function addTodo() {
+			let $todoData = {};
+
+			$(document).on('click', '.todo-btn', function(e) {
+				e.preventDefault();
+
+				let $todoBtn = $(this);
+				let $todoUser = $todoBtn.parents('.user');
+				let $todoId = $todoUser.data('user-id');
+
+				if ($todoBtn.hasClass('active')) {
+					return false;
+				}
+
+				removeElement();
+				$todoBtn.addClass('active');
+
+				if (!$todoData[`user_id_${$todoId}`]) {
+					
+					$.ajax({
+						url: `https://jsonplaceholder.typicode.com/todos?userId=${$todoId}`,
+
+						success: function(data) {
+							$todoData[`user_id_${$todoId}`] = data;
+							renderTodo(data);
+						},
+						error: function() {
+							errorWindow();
+						}
+					});
+				} else {
+					renderTodo($todoData[`user_id_${$todoId}`]);
+				}
+			});
+		}
+
+		function removeElement() {
+			$('.post-item').remove();
+			$('.albums').remove();
+			$('.post-item').remove();
+			$('.photo').remove();
+			$('.todo').remove();
+			$('.posts-btn').removeClass('active');
+			$('.album-btn').removeClass('active');
+			$('.todo-btn').removeClass('active');
 		}
 
 		$(document).ready(function() {
 			addUser();
 			addPost();
 			showComments();
+			addAlbum();
+			showPhoto();
+			addTodo();
 		});
 
 })(jQuery);

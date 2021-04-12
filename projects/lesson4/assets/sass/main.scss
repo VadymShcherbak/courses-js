@@ -23,6 +23,8 @@
 	}
 
 	a {
+		margin-bottom: 10px;
+
 		&:not(:last-child) {
 			margin-right: 10px;
 		}
@@ -71,8 +73,36 @@
 }
 
 .comment {
+	padding: 5px;
 	
 	p {
 		color: rgba(16, 16, 16, 0.9);
 	}
+}
+
+.albums {
+
+	.albums-item {
+		border-radius: 15px;
+		padding: 15px;
+		background-color: rgba(130, 228, 195, 0.671);
+	}
+}
+
+.photo-item {
+
+	img {
+		margin-bottom: 10px;
+		border-radius: 10px;
+	}
+	
+	h5 {
+		margin-bottom: 0;
+	}
+}
+
+.todo-item {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgba(143, 224, 140, 0.747);
 }
