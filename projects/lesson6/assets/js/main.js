@@ -1,6 +1,6 @@
 (function($) {
 
-	const apiKey = 'cee74240e02028a7d4f9cb1a6437a2b1';
+	const apiKey = '60c592ec5eb5f3c7cfd3c53f4ac4c0bd';
 
 	function errorWindow() {
 		$('body').children().remove();
