@@ -103,7 +103,7 @@
 				url: 'https://jsonplaceholder.typicode.com/users',
 	
 				success: function(data) {
-					renderUsers(data, 'card');
+					renderUsers(data);
 				},
 				error: function() {
 					errorWindow();
